@@ -23,3 +23,4 @@ void PrintArray(int[] col)
 int[] array = new int[10];
 FillArray(array);
 PrintArray(array);
+//создание массива из 10 элементов, массив заполняется случайными числами и распечатывается
