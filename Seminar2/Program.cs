@@ -24,7 +24,7 @@ void Zadacha11()
     Random rand = new Random();
     int number = rand.Next(100, 1000);
     Console.WriteLine("Случайное число: " + number);
-    Console.WriteLine("Новое число: " + (number/100 * 10 + number%10));
+    Console.WriteLine("Новое число: " + (number/10  + number%10));
 }  
 void Zadacha12()
 {
