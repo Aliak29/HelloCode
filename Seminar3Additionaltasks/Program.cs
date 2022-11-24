@@ -44,63 +44,111 @@ void Zadacha3()
     int hunds = number / 100;
     int tens = number / 10 % 10;
     int ones = number % 10;
-    if (hunds % 4 == 0 || hunds % 7 == 0)
+    if (hunds == 4 || tens == 4 || ones == 4)
     {
-        Console.WriteLine("Первая цифра числа кратна 4 или 7 " + hunds);
+        Console.WriteLine("Среди цифр числа есть 4");
     }
-    if (tens % 4 == 0 || tens % 7 == 0)
+    if (hunds == 7 || tens == 7 || ones == 7)
     {
-        Console.WriteLine("Вторая цифра числа кратна 4 или 7 " + tens);
+        Console.WriteLine("Среди цифр числа есть 7");
     }
-    if (ones % 4 == 0 || ones % 7 == 0)
-    {
-        Console.WriteLine("Третья цифра числа кратна 4 или 7 " + ones);
-    }
-    else Console.WriteLine("Ни одна цифра числа не кратна 7 или 4");
-}
-void FillArray(int[] nums)
-{
-    Random rand = new Random();
-    int size = nums.Length;
-    for (int i = 0; i < size; i++)
-    {
-        nums[i] = rand.Next(1, 11);
-    }
-}
-void PrintArray(int[] nums)
-{
-    int size = nums.Length;
-    for (int i = 0; i < size; i++)
-    {
-        Console.Write((nums[i]) + " ");
-    }
-    Console.WriteLine();
-}
-void SelectionSort(int[] nums)
-{
-    for (int i = 0; i < nums.Length - 1; i++)
-    {
-        int minPosition = i;
-        for (int j = i + 1; j < nums.Length; j++)
-        {
-            if (nums[j] < nums[minPosition]) minPosition = j;
-        }
-        int temporary = nums[i];
-        nums[i] = nums[minPosition];
-        nums[minPosition] = temporary;
-    }
+    else Console.WriteLine("Среди цифр числа нет 4 или 7");
 }
 void Zadacha4()
 {
     //Дан массив длиной 10 элементов. Заполнить его последовательно числами от 1 до 10.
     Console.WriteLine("Задача 4.");
-    int size = 10;
-    int[] numbers = new int[size];
-    FillArray(numbers);
-    SelectionSort(numbers);
-    PrintArray(numbers);
+    int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    void PrintArray(int[] array)
+    {
+        int count = array.Length;
+        for (int i = 0; i < count; i++)
+        {
+            Console.Write($"{array[i]} ");
+        }
+        Console.WriteLine();
+    }
+    PrintArray(arr);
+}
+void Zadacha1Up()
+{// На ввод подаётся номер четверти. Создаются 3 случайные точки в этой четверти. 
+ //Определите самый оптимальный маршрут для торгового менеджера, который выезжает из центра координат.
+    Console.WriteLine("Задача 1. Повышенной сложности");
+    Console.WriteLine("Введите номер четверти");
+    int number = Convert.ToInt32(Console.ReadLine());
+    Random rand = new Random();
+    if (number == 1)
+    {
+        int x1 = rand.Next(1, 11);
+        int y1 = rand.Next(1, 11);
+        int x2 = rand.Next(1, 11);
+        int y2 = rand.Next(1, 11);
+        int x3 = rand.Next(1, 11);
+        int y3 = rand.Next(1, 11);
+        Console.WriteLine($"A({x1}, {y1}); B({x2}, {y2}); C({x3}, {y3})");
+        double resultfirst = Math.Sqrt(Math.Pow((0 - x1), 2) + Math.Pow((0 - y1), 2));
+        double resultsecond = Math.Sqrt(Math.Pow((0 - x2), 2) + Math.Pow((0 - y2), 2));
+        double resultthird = Math.Sqrt(Math.Pow((0 - x3), 2) + Math.Pow((0 - y3), 2));
+        double min = resultfirst;
+        if (min > resultsecond) min = resultsecond;
+        if (resultsecond > resultthird) min = resultthird;
+        Console.WriteLine("Самый короткий маршрут из центра координат до одной из точек равен: " + Math.Round(min, 2));
+    }
+    if (number == 2)
+    {
+        int x1 = rand.Next(-10, 0);
+        int y1 = rand.Next(1, 11);
+        int x2 = rand.Next(-10, 0);
+        int y2 = rand.Next(1, 11);
+        int x3 = rand.Next(-10, 0);
+        int y3 = rand.Next(1, 11);
+        Console.WriteLine($"A({x1}, {y1}); B({x2}, {y2}); C({x3}, {y3})");
+        double resultfirst = Math.Sqrt(Math.Pow((0 - x1), 2) + Math.Pow((0 - y1), 2));
+        double resultsecond = Math.Sqrt(Math.Pow((0 - x2), 2) + Math.Pow((0 - y2), 2));
+        double resultthird = Math.Sqrt(Math.Pow((0 - x3), 2) + Math.Pow((0 - y3), 2));
+        double min = resultfirst;
+        if (min > resultsecond) min = resultsecond;
+        if (resultsecond > resultthird) min = resultthird;
+        Console.WriteLine("Самый короткий маршрут из центра координат до одной из точек равен: " + Math.Round(min, 2));
+    }
+    if (number == 3)
+    {
+        int x1 = rand.Next(-10, 0);
+        int y1 = rand.Next(-10, 0);
+        int x2 = rand.Next(-10, 0);
+        int y2 = rand.Next(-10, 0);
+        int x3 = rand.Next(-10, 0);
+        int y3 = rand.Next(-10, 0);
+        Console.WriteLine($"A({x1}, {y1}); B({x2}, {y2}); C({x3}, {y3})");
+        double resultfirst = Math.Sqrt(Math.Pow((0 - x1), 2) + Math.Pow((0 - y1), 2));
+        double resultsecond = Math.Sqrt(Math.Pow((0 - x2), 2) + Math.Pow((0 - y2), 2));
+        double resultthird = Math.Sqrt(Math.Pow((0 - x3), 2) + Math.Pow((0 - y3), 2));
+        double min = resultfirst;
+        if (min > resultsecond) min = resultsecond;
+        if (resultsecond > resultthird) min = resultthird;
+        Console.WriteLine("Самый короткий маршрут из центра координат до одной из точек равен: " + Math.Round(min, 2));
+    }
+    if (number == 4)
+    {
+        int x1 = rand.Next(1, 11);
+        int y1 = rand.Next(-10, 0);
+        int x2 = rand.Next(1, 11);
+        int y2 = rand.Next(-10, 0);
+        int x3 = rand.Next(1, 11);
+        int y3 = rand.Next(-10, 0);
+        Console.WriteLine($"A({x1}, {y1}); B({x2}, {y2}); C({x3}, {y3})");
+        double resultfirst = Math.Sqrt(Math.Pow((0 - x1), 2) + Math.Pow((0 - y1), 2));
+        double resultsecond = Math.Sqrt(Math.Pow((0 - x2), 2) + Math.Pow((0 - y2), 2));
+        double resultthird = Math.Sqrt(Math.Pow((0 - x3), 2) + Math.Pow((0 - y3), 2));
+        double min = resultfirst;
+        if (min > resultsecond) min = resultsecond;
+        if (resultsecond > resultthird) min = resultthird;
+        Console.WriteLine("Самый короткий маршрут из центра координат до одной из точек равен: " + Math.Round(min, 2));
+    }
+    else Console.WriteLine("Неверный ввод");
 }
 //Zadacha1();
 //Zadacha2();
 //Zadacha3();
-Zadacha4();
+//Zadacha4();
+Zadacha1Up();
