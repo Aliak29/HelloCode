@@ -41,10 +41,9 @@ void Zadacha36()
     FillArray(numbers, 0, 10);
     PrintArray(numbers);
     int sum = 0;
-    for (int i = 1; i < size; i++)
+    for (int i = 1; i < size; i += 2)
     {
         sum += numbers[i];
-        i++;
     }
     Console.WriteLine("Сумма элементов с нечётными индексами равна: " + sum);
 }
@@ -96,5 +95,5 @@ void Zadacha38()
     Console.WriteLine("Разница чисел: " + result);
 }
 //Zadacha34();
-//Zadacha36();
+Zadacha36();
 //Zadacha38();
