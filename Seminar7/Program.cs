@@ -115,7 +115,7 @@ string Input(string inputText)
     Console.WriteLine(inputText);
     return Console.ReadLine();
 }
-int count = Convert.ToInt32(Input("Введите число");
+int count = Convert.ToInt32(Input("Введите число"));
 
 //Zadacha46();
 //Zadacha48();

@@ -9,7 +9,7 @@
     for (int i = 0; i < numberSplit.Length; i++)
     {
         if (Convert.ToInt32(numberSplit[i]) > 0)
-        result = result + 1;
+            result = result + 1;
     }
     Console.WriteLine($"Чисел больше нуля введено: {result}");
 
@@ -27,9 +27,17 @@ void Zadacha43()
     double numberb2 = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine("Введите значение k2");
     double numberk2 = Convert.ToInt32(Console.ReadLine());
-    double x = (numberb2 - numberb1)/(numberk1-numberk2);
-    double y = numberk1 * x + numberb1;
-    Console.WriteLine($"Прямые пересекаются в точке:  ({Math.Round(x,2)};{Math.Round(y,2)})");
+    if (numberk1 != numberk2)
+    {
+        double x = (numberb2 - numberb1) / (numberk1 - numberk2);
+        double y = numberk1 * x + numberb1;
+        Console.WriteLine($"Прямые пересекаются в точке:  ({Math.Round(x, 2)};{Math.Round(y, 2)})");
+    }
+    else
+    {
+        Console.WriteLine("Прямые паралельные");
+    }
+
 }
 //Zadacha41();
 Zadacha43();
