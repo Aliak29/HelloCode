@@ -196,7 +196,72 @@
 
             }
 
-            Zadacha3();
+            //Zadacha3();
+            void Zadacha58()
+            {
+                // вывод массива по спирали
+                int rows = 5;
+                int columns = 4;
+                int indexRow = 0;
+                int indexColumn = 0;
+                int biasRow = 0;
+                int biasColumn = 1;
+                int steps = columns;
+                int turn = 0;
+
+                int[,] numbers = new int[rows, columns];
+                for (int i = 0; i < numbers.Length; i++)
+                {
+                    numbers[indexRow, indexColumn] = i + 1;
+                    steps--;
+                    if (steps == 0)
+                    {
+                        //steps = columns - 1 - turn / 2;
+                        steps= columns*(turn%2) + rows * ((turn +1)%2) -1 - turn / 2;
+                        int temp = biasRow;
+                        biasRow = biasColumn;
+                        biasColumn = -temp;
+                        turn++;
+                    }
+                    indexRow += biasRow;
+                    indexColumn += biasColumn;
+                }
+                PrintArray(numbers);
+
+
+            }
+            //Zadacha58();
+            void Zadacha61()
+            { // Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+                int rowsFirst = 5;
+                int columnsFirst = 4;
+                int rowsSecond = columnsFirst;
+                int columnsSecond = 2;
+                int[,] matrixFirst = new int[rowsFirst, columnsFirst];
+                int[,] matrixSecond = new int[rowsSecond, columnsSecond];
+                int[,] result = new int[rowsFirst, columnsSecond];
+                FillArray(matrixFirst);
+                FillArray(matrixSecond);
+            
+
+                for (int i = 0; i < rowsFirst; i++)
+                {
+                    for (int j = 0; j < columnsSecond; j++)
+                    {
+                        for (int k = 0; k < columnsFirst  ; k++)
+                        {
+                            result[i,j] += matrixFirst[i,k] + matrixSecond[k,j]; 
+                        }
+                    }
+                }
+
+                PrintArray(matrixFirst);
+                Console.WriteLine();
+                PrintArray(matrixSecond);
+                Console.WriteLine();
+                PrintArray(result);
+            }
+            Zadacha61();
         }
         #region FillArray
         static void FillArray(int[,] numbers, int minValue = 0, int maxValue = 9)
